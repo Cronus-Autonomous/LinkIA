@@ -29,7 +29,7 @@ export default function StickyCta({ onAskAi }) {
     : 'w-14 h-14 p-0 text-sm';
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-30 px-4 pb-4 pt-2 bg-gradient-to-t from-nude-50 via-nude-50/90 to-transparent pointer-events-none">
+    <div className={`fixed bottom-0 inset-x-0 z-30 px-4 pb-4 pt-2 ${scrolled ? 'bg-gradient-to-t from-nude-50 via-nude-50/90 to-transparent' : ''} pointer-events-none`}>
       <div className="max-w-3xl mx-auto flex items-center justify-end gap-3 pointer-events-auto">
         <button
           onClick={onAskAi}

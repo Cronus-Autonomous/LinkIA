@@ -79,10 +79,10 @@ export default function BeforeAfterCarousel({ onAskAi }) {
 
   return (
     <ScrollReveal className="py-10">
-      <div className="flex items-end justify-between mb-6 px-1">
+      <div className="flex items-end justify-between mb-4 px-1">
         <div>
           <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2">Resultados Reais</p>
-          <h2 className="font-display text-3xl text-graphite">Transformações Antes & Depois</h2>
+          <h2 className="font-display text-2xl text-graphite">Transformações Antes & Depois</h2>
         </div>
         <div className="hidden sm:flex items-center gap-2">
           <button onClick={() => scrollTo(Math.max(0, active - 1))} aria-label="Anterior" className="w-10 h-10 rounded-full pill-quick flex items-center justify-center">
@@ -100,7 +100,7 @@ export default function BeforeAfterCarousel({ onAskAi }) {
         className="no-scrollbar flex gap-5 overflow-x-auto snap-x snap-mandatory pb-2 -mx-1 px-1"
       >
         {TRANSFORMATIONS.map((t, i) => (
-          <div key={i} className="snap-center shrink-0 w-[80%] w-[280px]">
+          <div key={i} className="snap-center shrink-0 w-[80%] max-w-[280px]">
             <div className="glass-card overflow-hidden">
               <div className="px-4 pt-4 flex items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-champagne/15 border border-champagne/40 text-[11px] font-semibold text-champagne-deep">
@@ -135,7 +135,7 @@ export default function BeforeAfterCarousel({ onAskAi }) {
         ))}
       </div>
 
-      <div className="flex justify-center gap-1.5 mt-4">
+      <div className="flex justify-center gap-1.5">
         {TRANSFORMATIONS.map((_, i) => (
           <button
             key={i}

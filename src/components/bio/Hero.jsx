@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { Check } from 'lucide-react';
 import VerifiedBadge from './VerifiedBadge';
 
@@ -18,40 +19,72 @@ const AVATAR = [
 ];
 
 export default function Hero() {
+  const [currentAvatarIndex, setCurrentAvatarIndex] = useState(0);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const videoRef = useRef(null);
+
+  // Alterna a imagem do avatar a cada 2 segundos (2000ms)
+  useEffect(() => {
+    const avatarInterval = setInterval(() => {
+      setCurrentAvatarIndex((prevIndex) => (prevIndex + 1) % AVATAR.length);
+    }, 4000);
+
+    return () => clearInterval(avatarInterval);
+  }, []);
+
+  // Transição para o próximo vídeo quando o atual é concluído
+  const handleVideoEnded = () => {
+    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % HERO_VIDEO.length);
+  };
+
+  // Garante a execução do autoplay ao alterar a fonte do vídeo
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  }, [currentVideoIndex]);
+
   return (
-    <section className="relative w-full min-h-[88vh] sm:min-h-[92vh] flex items-center justify-center overflow-hidden bg-graphite">
+    <section className="relative w-full min-h-[100vh] sm:min-h-[92vh] flex items-center justify-center overflow-hidden bg-graphite">
       <video
+        ref={videoRef}
+        key={HERO_VIDEO[currentVideoIndex]}
         className="absolute inset-0 w-full h-full object-cover opacity-30 sm:opacity-100"
         autoPlay
         muted
-        loop
         playsInline
+        onEnded={handleVideoEnded}
         poster={HERO_POSTER}
       >
-        <source src={HERO_VIDEO[1]} type="video/mp4" />
+        <source src={HERO_VIDEO[currentVideoIndex]} type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-graphite/40 via-graphite/25 to-graphite/65" />
       <div className="absolute inset-0 bg-gradient-to-tr from-rose-gold/10 via-transparent to-champagne/10" />
 
       <div className="relative z-10 px-6 py-16 flex flex-col items-center text-center max-w-2xl mx-auto">
-        {/* Avatar — photo as circle background */}
+        {/* Avatar — foto de perfil com troca dinâmica */}
         <div className="relative mb-5">
           <div className="absolute inset-0 rounded-full blur-xl opacity-70 bg-gradient-to-br from-champagne-light via-rose-gold to-champagne-deep scale-110" />
           <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-[3px] from-champagne-light via-champagne-shine to-champagne-deep shadow-xl">
             <div
-              className="w-full h-full rounded-full overflow-hidden bg-graphite/10"
-              style={{ backgroundImage: `url(${AVATAR[2]})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+              className="w-full h-full rounded-full overflow-hidden bg-graphite/10 transition-all duration-500"
+              style={{
+                backgroundImage: `url(${AVATAR[currentAvatarIndex]})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
             />
-            <div className=" absolute -bottom-0.5 -right-0.5 w-7 h-7 flex items-center justify-center">
+            <div className="absolute -bottom-0.5 -right-0.5 w-7 h-7 flex items-center justify-center">
               <VerifiedBadge size={20} color="#1D9BF0" />
             </div>
           </div>
         </div>
 
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-[48px] leading-tight text-white drop-shadow-sm mb-3">
-          Sua <span className="gold-text">Estética</span>
+        <h1 className="font-display text-4xl sm:text-5xl lg:text-[48px] leading-tight text-white drop-shadow-sm">
+          Sua <span className="gold-text">Estética </span>
         </h1>
+        <span className="gold-text mb-3">no LinkIA</span>
         <p className="text-white/90 text-[15px] sm:text-base font-body max-w-lg mx-auto mb-7 drop-shadow">
           Realce o que você já tem. Harmonização e skincare de alto padrão, com cuidado que não termina no procedimento.
         </p>

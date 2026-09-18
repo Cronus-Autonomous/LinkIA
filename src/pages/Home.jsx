@@ -28,8 +28,8 @@ export default function Home() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 lg:gap-8">
-          <main className="-space-y-2 min-w-0">
-            <QuickPills onAskAi={handleAskAi} />
+          <main className="min-w-0">
+            {/* <QuickPills onAskAi={handleAskAi} /> */}
             <BeforeAfterCarousel onAskAi={handleAskAi} />
             <ServiceShowcase onAskAi={handleAskAi} />
             <SocialProof />

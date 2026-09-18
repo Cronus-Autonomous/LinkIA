@@ -115,7 +115,7 @@ export default function ChatPanel({ messages, isTyping, sendMessage, contextServ
         {!compact && (
           <p className="flex items-center gap-1.5 mt-2 text-[11px] text-brown-muted/80 px-1">
             <Sparkles className="w-3 h-3 text-champagne" />
-            Atendimento inteligente pela IA Lumen · Respostas em tempo real
+            Atendimento inteligente pela IAra · Respostas em tempo real
           </p>
         )}
       </form>
