@@ -8,6 +8,7 @@ import SocialProof from '@/components/bio/SocialProof';
 import StickyCta from '@/components/bio/StickyCta';
 import AiChatConsole from '@/components/bio/AiChatConsole';
 import AiChatWidget from '@/components/bio/AiChatWidget';
+import SocialProofBadge from '@/components/bio/SocialProofBadge';
 
 export default function Home() {
   const chat = useChat();
@@ -25,6 +26,7 @@ export default function Home() {
   return (
     <div className="min-h-screen pb-28 lg:pb-8">
       <Hero />
+      <SocialProofBadge/>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 lg:gap-8">
@@ -42,7 +44,7 @@ export default function Home() {
       </div>
 
       <AiChatWidget chat={chat} open={widgetOpen} setOpen={setWidgetOpen} contextService={contextService} />
-      <StickyCta onAskAi={() => handleAskAi('Olá! Quero conversar com a assistente.')} />
+      <StickyCta onAskAi={handleAskAi} />
     </div>
   );
 }

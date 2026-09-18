@@ -78,8 +78,8 @@ export default function BeforeAfterCarousel({ onAskAi }) {
   };
 
   return (
-    <ScrollReveal className="py-10">
-      <div className="flex items-end justify-between mb-4 px-1">
+    <ScrollReveal className="pb-10 pt-5">
+      <div className="flex items-end justify-between px-1">
         <div>
           <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2">Resultados Reais</p>
           <h2 className="font-display text-2xl text-graphite">Transformações Antes & Depois</h2>

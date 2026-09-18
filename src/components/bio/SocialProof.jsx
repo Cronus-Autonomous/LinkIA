@@ -198,7 +198,7 @@ export default function SocialProof() {
                     <Star key={i} className="w-5 h-5 fill-graphite text-graphite" />
                   ))}
                 </div>
-                <p className="font-display text-2xl font-bold tracking-tight">4.9 Rating</p>
+                <p className="font-display text-2xl font-bold tracking-tight">4.9 Avaliação</p>
               </div>
 
               <div className="mt-12 flex items-center gap-3">
