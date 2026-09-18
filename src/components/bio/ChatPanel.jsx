@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { Send, Sparkles, MessageCircle } from 'lucide-react';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { Send, Sparkles, MessageCircle, ShieldCheck, X } from 'lucide-react';
 
 function TypingIndicator() {
   return (
@@ -30,25 +30,13 @@ function MessageBubble({ msg }) {
           {msg.text}
         </div>
 
-        {msg.ctaLink && (
-          <a
-            href={msg.ctaLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="gold-button inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold font-body"
-          >
-            <MessageCircle className="w-4 h-4" />
-            Agendar via WhatsApp com meu histórico
-          </a>
-        )}
-
         {msg.quickReplies && msg.quickReplies.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {msg.quickReplies.map((reply) => (
               <button
                 key={reply}
                 onClick={() => window.dispatchEvent(new CustomEvent('bio-quick-reply', { detail: reply }))}
-                className="pill-quick px-3 py-1.5 rounded-full text-xs font-medium text-graphite"
+                className="pill-quick px-3 py-1.5 rounded-full text-xs font-medium text-graphite hover:bg-champagne/20 transition-colors"
               >
                 {reply}
               </button>
@@ -85,10 +73,11 @@ export default function ChatPanel({ messages, isTyping, sendMessage, contextServ
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full min-h-0 overflow-hidden">
+      {/* Área de mensagens com rolagem interna */}
       <div
         ref={scrollRef}
-        className="chat-scroll flex-1 overflow-y-auto px-4 py-4 space-y-4"
+        className="chat-scroll flex-1 overflow-y-auto min-h-0 px-4 py-4 space-y-4"
       >
         {messages.map((m, i) => (
           <MessageBubble key={i} msg={m} />
@@ -96,7 +85,8 @@ export default function ChatPanel({ messages, isTyping, sendMessage, contextServ
         {isTyping && <TypingIndicator />}
       </div>
 
-      <form onSubmit={submit} className="p-3 border-t border-champagne/30 bg-white/40 backdrop-blur-md">
+      {/* Formulário fixado na parte inferior */}
+      <form onSubmit={submit} className="shrink-0 p-3 border-t border-champagne/30 bg-white/40 backdrop-blur-md">
         <div className="flex items-center gap-2">
           <input
             value={input}
@@ -107,7 +97,7 @@ export default function ChatPanel({ messages, isTyping, sendMessage, contextServ
           <button
             type="submit"
             aria-label="Enviar"
-            className="gold-button w-11 h-11 shrink-0 flex items-center justify-center"
+            className="gold-button w-11 h-11 shrink-0 flex items-center justify-center rounded-full"
           >
             <Send className="w-4.5 h-4.5 text-graphite" />
           </button>

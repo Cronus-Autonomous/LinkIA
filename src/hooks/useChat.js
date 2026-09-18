@@ -18,7 +18,7 @@ export function useChat() {
   const sendMessage = useCallback(async (userMessage, contextService) => {
     if (!userMessage?.trim()) return;
 
-    setMessages(prev => [...prev, { role: 'user', text: userMessage }]);
+    setMessages((prev) => [...prev, { role: 'user', text: userMessage }]);
     setIsTyping(true);
 
     try {
@@ -39,17 +39,15 @@ export function useChat() {
       const assistantMsg = {
         role: 'assistant',
         text: data.textResponse || 'Recebi sua mensagem! Em instantes trago mais detalhes. ✨',
-        quickReplies: Array.isArray(data.quickReplies) ? data.quickReplies : undefined,
-        ctaLink: data.ctaLink || undefined
+        quickReplies: Array.isArray(data.quickReplies) ? data.quickReplies : undefined
       };
-      setMessages(prev => [...prev, assistantMsg]);
+      setMessages((prev) => [...prev, assistantMsg]);
     } catch (err) {
-      setMessages(prev => [
+      setMessages((prev) => [
         ...prev,
         {
           role: 'assistant',
-          text: 'Estou com uma instabilidade de conexão agora, mas posso já te direcionar ao nosso time humano. Toque em "Agendar via WhatsApp" abaixo. 🌿',
-          ctaLink: 'https://wa.me/5543996084644?text=Ol%C3%A1!%20Vim%20pela%20bio%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.',
+          text: 'Estou com uma instabilidade de conexão agora, mas você pode continuar no WhatsApp clicando no botão verde no topo. 🌿',
           quickReplies: ['Tentar novamente', 'Ver Tratamentos']
         }
       ]);
