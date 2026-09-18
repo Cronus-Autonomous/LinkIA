@@ -1,10 +1,10 @@
 import { useState, useCallback, useRef } from 'react';
 
-const WEBHOOK_URL = 'https://evolusite.app.n8n.cloud/webhook/bio-inteligente-chat';
+const WEBHOOK_URL = import.meta.env.VITE_WEBHHOOK_URL;
 
 const WELCOME = {
   role: 'assistant',
-  text: 'Olá! Sou a assistente de IA da Lumen Estética Avançada. Posso ajudar com tratamentos, valores e agendamento. Como posso te atender hoje?',
+  text: 'Me conta, o que você quer transformar no seu visual hoje, princesa?',
   quickReplies: ['Ver Tratamentos', 'Valores e Condições', 'Agendar Consulta']
 };
 

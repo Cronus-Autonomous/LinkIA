@@ -20,8 +20,8 @@ export default function AiChatWidget({ chat, open, setOpen, contextService }) {
               <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white" />
             </div>
             <div>
-              <p className="font-display text-lg leading-none text-graphite">Assistente Lumen</p>
-              <p className="text-[11px] text-emerald-600 font-medium mt-0.5">🟢 Online agora</p>
+              <p className="font-display text-lg leading-none text-graphite">Assistente IAra</p>
+              <p className="text-[11px] text-emerald-600 font-medium mt-0.5">Online agora</p>
             </div>
           </div>
           <button

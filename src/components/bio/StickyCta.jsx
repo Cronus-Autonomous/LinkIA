@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Sparkles } from 'lucide-react';
 
 function WhatsAppIcon({ className = '' }) {
@@ -9,16 +10,38 @@ function WhatsAppIcon({ className = '' }) {
 }
 
 export default function StickyCta({ onAskAi }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll(); // garante estado correto ao montar (ex: reload no meio da página)
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Base + regras exclusivas de desktop (sempre expandido a partir de sm)
+  const aiBase =
+    'gold-button rounded-full font-semibold font-body inline-flex items-center justify-center gap-2 transition-all duration-300 ease-out sm:flex-1 sm:w-auto sm:h-auto sm:px-6 sm:py-4 sm:text-base';
+
+  // Mobile expandido (após rolar) vs. colapsado (círculo flutuante)
+  const aiLayout = scrolled
+    ? 'flex-1 py-4 px-4 text-sm'
+    : 'w-14 h-14 p-0 text-sm';
+
   return (
     <div className="fixed bottom-0 inset-x-0 z-30 px-4 pb-4 pt-2 bg-gradient-to-t from-nude-50 via-nude-50/90 to-transparent pointer-events-none">
-      <div className="max-w-3xl mx-auto flex items-center gap-3 pointer-events-auto">
+      <div className="max-w-3xl mx-auto flex items-center justify-end gap-3 pointer-events-auto">
         <button
           onClick={onAskAi}
-          className="gold-button flex-1 py-4 rounded-full text-sm sm:text-base font-semibold font-body inline-flex items-center justify-center gap-2"
+          aria-label="Falar com a Assistente IA"
+          className={`${aiBase} ${aiLayout}`}
         >
-          <Sparkles className="w-5 h-5 text-graphite" />
-          Falar com a Assistente IA
+          <Sparkles className="w-5 h-5 text-graphite shrink-0" />
+          <span className={`${scrolled ? 'inline' : 'hidden sm:inline'} whitespace-nowrap`}>
+            Falar com a Assistente IA
+          </span>
         </button>
+
         <a
           href="https://wa.me/5543996084644?text=Ol%C3%A1!%20Vim%20pela%20bio%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
           target="_blank"

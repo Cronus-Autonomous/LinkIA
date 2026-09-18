@@ -25,7 +25,7 @@ export default function SocialProof() {
       <div className="glass-card p-7 sm:p-9 text-center">
         <div className="flex items-center justify-center gap-1 mb-3">
           {[0, 1, 2, 3, 4].map((i) => (
-            <Star key={i} className="w-6 h-6 text-champagne-deep" fill="#E5C158" stroke="#B8860B" />
+            <Star key={i} className="w-6 h-6 text-champagne-deep" fill="#E5C158" />
           ))}
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 mb-6">

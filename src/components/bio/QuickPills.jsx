@@ -8,14 +8,14 @@ export default function QuickPills({ onAskAi }) {
   ];
 
   return (
-    <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+    <div className="flex flex-wrap gap-1 justify-center lg:justify-start">
       {pills.map((p) => {
         const Icon = p.icon;
         return (
           <button
             key={p.label}
             onClick={p.action}
-            className="pill-quick inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium text-graphite"
+            className="pill-quick inline-flex items-center gap-2 px-3 py-3 rounded-full text-sm font-medium text-graphite"
           >
             <Icon className="w-4 h-4 text-champagne-deep" />
             {p.label}

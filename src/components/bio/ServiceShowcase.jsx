@@ -27,7 +27,7 @@ function ServiceCard({ service, onAskAi, delay }) {
   return (
     <ScrollReveal delay={delay} className="h-full">
       <div className="glass-card overflow-hidden h-full flex flex-col group">
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-28 overflow-hidden">
           <Image
             src={service.img}
             alt={service.name}
@@ -57,7 +57,7 @@ function ServiceCard({ service, onAskAi, delay }) {
 
 export default function ServiceShowcase({ onAskAi }) {
   return (
-    <section className="py-10">
+    <section className="py-2 bg-champagne/15 px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-8">
         <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2">Vitrine de Tratamentos</p>
         <h2 className="font-display text-3xl text-graphite">Procedimentos Premium</h2>

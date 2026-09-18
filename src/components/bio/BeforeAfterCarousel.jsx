@@ -1,29 +1,51 @@
 import { useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles, Users  } from 'lucide-react';
 import { Image } from '@/components/ui/image';
 import ScrollReveal from './ScrollReveal';
-
-const BEFORE = 'https://media.base44.com/images/public/6aac04518ddaa9a3b34c4579/f4bc04297_generated_image.png';
 
 const TRANSFORMATIONS = [
   {
     tag: 'Harmonização Facial',
-    before: BEFORE,
-    after: 'https://media.base44.com/images/public/6aac04518ddaa9a3b34c4579/42b214010_generated_image.png',
-    caption: 'Harmonização com ácido hialurônico — resultado em 21 dias'
+    before: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789697300/a1.png',
+    after: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789697299/d1.png',
+    caption: 'Harmonização com ácido hialurônico — resultado em 21 dias',
+    length: 221
   },
   {
     tag: 'Skincare Premium',
-    before: BEFORE,
-    after: 'https://media.base44.com/images/public/6aac04518ddaa9a3b34c4579/ebd9f3a75_generated_image.png',
-    caption: 'Protocolo de skincare clínico — 90 dias de tratamento'
+    before: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789697516/a2.png',
+    after: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789697515/d2.png',
+    caption: 'Protocolo de skincare clínico — 90 dias de tratamento',
+    length: 190
   },
   {
     tag: 'Botox & Toxina',
-    before: BEFORE,
-    after: 'https://media.base44.com/images/public/6aac04518ddaa9a3b34c4579/7f038b5f6_generated_image.png',
-    caption: 'Toxina botulínica — suavização de rugas de expressão'
-  }
+    before: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789697668/a3.png',
+    after: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789697668/d3.png',
+    caption: 'Toxina botulínica — suavização de rugas de expressão',
+    length: 330
+  },
+  {
+    tag: 'Bioestimulador de colágeno',
+    before: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789698478/a4.png',
+    after: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789698453/d4.png',
+    caption: 'Bioestimulador de colágeno — firmeza que dura até 2 anos',
+    length: 730
+  },
+  {
+    tag: 'Preenchimento Labial',
+    before: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789698645/a5.png',
+    after: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789698644/d5.png',
+    caption: 'Preenchimento labial — definição natural, sem exageros',
+    length: 630
+  },
+  {
+    tag: 'Fios de Sustentação',
+    before: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789699111/a6.png',
+    after: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789699110/d6.png',
+    caption: 'Fios de sustentação — lifting sem cirurgia, resultado imediato',
+    length: 130
+  },
 ];
 
 export default function BeforeAfterCarousel({ onAskAi }) {
@@ -78,11 +100,14 @@ export default function BeforeAfterCarousel({ onAskAi }) {
         className="no-scrollbar flex gap-5 overflow-x-auto snap-x snap-mandatory pb-2 -mx-1 px-1"
       >
         {TRANSFORMATIONS.map((t, i) => (
-          <div key={i} className="snap-center shrink-0 w-[85%] sm:w-[420px]">
+          <div key={i} className="snap-center shrink-0 w-[80%] w-[280px]">
             <div className="glass-card overflow-hidden">
               <div className="px-4 pt-4 flex items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-champagne/15 border border-champagne/40 text-[11px] font-semibold text-champagne-deep">
                   <Sparkles className="w-3 h-3" /> {t.tag}
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-champagne-light to-champagne-deep border border-champagne/40 text-[11px] font-semibold text-white">
+                  <Users className="w-3 h-3" /> +{t.length}
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-px bg-champagne/20 mt-3">
@@ -97,13 +122,13 @@ export default function BeforeAfterCarousel({ onAskAi }) {
               </div>
               <div className="p-4">
                 <p className="text-sm text-brown-muted font-body">{t.caption}</p>
-                <button
+                {/* <button
                   onClick={() => onAskAi(`Quero saber mais sobre: ${t.tag}`)}
                   className="mt-3 w-full pill-quick py-2.5 rounded-full text-sm font-medium text-graphite inline-flex items-center justify-center gap-2"
                 >
                   <Sparkles className="w-4 h-4 text-champagne-deep" />
                   Perguntar à IA sobre este resultado
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

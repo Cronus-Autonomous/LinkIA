@@ -13,8 +13,8 @@ export default function AiChatConsole({ chat, contextService }) {
             <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white" />
           </div>
           <div>
-            <p className="font-display text-xl leading-none text-graphite">Assistente Lumen IA</p>
-            <p className="text-xs text-emerald-600 font-medium mt-1">🟢 Online agora · responde em segundos</p>
+            <p className="font-display text-xl leading-none text-graphite">Sua Assistente LinkIA</p>
+            <p className="text-xs text-emerald-600 font-medium mt-1">responde em segundos</p>
           </div>
         </div>
       </div>
