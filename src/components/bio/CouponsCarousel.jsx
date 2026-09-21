@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Ticket, Sparkles } from 'lucide-react';
+import { Ticket, Sparkles } from 'lucide-react';
 
 const COUPONS = [
   {
@@ -9,8 +9,8 @@ const COUPONS = [
     discount: '40% OFF',
     subtitle: 'Em qualquer protocolo facial de alta tecnologia',
     buttonText: 'Resgatar',
-    theme: 'black', // Design escuro/Black Friday
-    circleBg: 'bg-amber-400',
+    theme: 'black',
+    circleBg: 'bg-champagne-deep',
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=600&auto=format&fit=crop',
     whatsappMessage: 'Olá! Gostaria de resgatar meu cupom de Black Friday (40% OFF em procedimentos faciais).'
   },
@@ -21,8 +21,8 @@ const COUPONS = [
     discount: 'R$ 100 OFF',
     subtitle: 'Na sua primeira avaliação + limpeza de pele profunda',
     buttonText: 'Resgatar',
-    theme: 'teal', // Inspirado no banner de referência verde/turquesa
-    circleBg: 'bg-amber-300',
+    theme: 'teal',
+    circleBg: 'bg-amber-200',
     image: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=600&auto=format&fit=crop',
     whatsappMessage: 'Olá! Vim pelo LinkIA e quero resgatar meu cupom de boas-vindas de R$ 100 OFF.'
   },
@@ -33,7 +33,7 @@ const COUPONS = [
     discount: 'Grave +1 Ponto',
     subtitle: 'Complete 5 sessões e ganhe uma revitalização',
     buttonText: 'Resgatar',
-    theme: 'rose', // Tom rosa/gold suave para fidelidade
+    theme: 'rose',
     circleBg: 'bg-rose-200',
     image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop',
     whatsappMessage: 'Olá! Quero pontuar no meu Cartão Fidelidade e agendar minha sessão.'
@@ -46,25 +46,25 @@ const COUPONS = [
     subtitle: 'Na contratação do pacote de bioestimuladores',
     buttonText: 'Resgatar',
     theme: 'champagne',
-    circleBg: 'bg-amber-200',
+    circleBg: 'bg-amber-100',
     image: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=600&auto=format&fit=crop',
     whatsappMessage: 'Olá! Tenho interesse no cupom de 25% OFF no Combo Corporal.'
   }
 ];
 
-// Estilos de temas baseados na paleta do componente e imagem de referência
+// Estilos de temas integrados à paleta de cores padrão
 const THEME_STYLES = {
   black: {
-    cardBg: 'bg-gradient-to-br from-neutral-900 via-zinc-900 to-black text-white border-amber-500/30',
-    badge: 'bg-amber-400 text-black font-extrabold',
+    cardBg: 'bg-gradient-to-br from-graphite via-zinc-900 to-black text-white border-champagne/40',
+    badge: 'bg-gradient-to-r from-champagne-light to-champagne-deep border border-champagne/40 text-graphite font-extrabold',
     title: 'text-zinc-300',
-    discount: 'text-amber-400 drop-shadow-[0_2px_8px_rgba(251,191,36,0.3)]',
+    discount: 'text-champagne-deep drop-shadow-sm',
     subtitle: 'text-zinc-400',
-    button: 'bg-amber-400 hover:bg-amber-300 text-black font-bold shadow-lg shadow-amber-400/20',
-    pattern: 'border-amber-400/20'
+    button: 'bg-gradient-to-r from-champagne-light to-champagne-deep border border-champagne/40 text-graphite font-bold shadow-md',
+    pattern: 'border-champagne/20'
   },
   teal: {
-    cardBg: 'bg-[#12b896] text-white border-emerald-400/30',
+    cardBg: 'bg-gradient-to-br from-[#12b896] to-[#0d8a71] text-white border-white/20',
     badge: 'bg-white/20 text-white backdrop-blur-md',
     title: 'text-white/90',
     discount: 'text-white drop-shadow-md',
@@ -73,7 +73,7 @@ const THEME_STYLES = {
     pattern: 'border-white/20'
   },
   rose: {
-    cardBg: 'bg-gradient-to-br from-rose-400 to-rose-500 text-white border-rose-300/30',
+    cardBg: 'bg-gradient-to-br from-rose-400 to-rose-600 text-white border-white/20',
     badge: 'bg-white/20 text-white backdrop-blur-md',
     title: 'text-rose-100',
     discount: 'text-white drop-shadow-md',
@@ -82,13 +82,13 @@ const THEME_STYLES = {
     pattern: 'border-white/20'
   },
   champagne: {
-    cardBg: 'bg-gradient-to-br from-[#d4af37] to-[#b8860b] text-white border-amber-200/30',
-    badge: 'bg-black/20 text-white backdrop-blur-md',
-    title: 'text-amber-100',
-    discount: 'text-white drop-shadow-md',
-    subtitle: 'text-amber-100/90',
-    button: 'bg-black text-white hover:bg-zinc-900 font-bold shadow-md',
-    pattern: 'border-white/20'
+    cardBg: 'bg-gradient-to-br from-[#d4af37] via-[#c59b27] to-[#b8860b] text-graphite border-champagne/40',
+    badge: 'bg-gradient-to-r from-champagne-light to-champagne-deep border border-champagne/40 text-graphite backdrop-blur-md font-bold',
+    title: 'text-graphite/90',
+    discount: 'text-graphite drop-shadow-xs',
+    subtitle: 'text-graphite/80',
+    button: 'bg-graphite hover:bg-black text-white font-bold shadow-md',
+    pattern: 'border-graphite/20'
   }
 };
 
@@ -106,43 +106,32 @@ export default function CouponsCarousel({ phoneNumber = '5511999999999' }) {
     }
   };
 
-  const scrollToSlide = (index) => {
-    if (containerRef.current) {
-      const clientWidth = containerRef.current.clientWidth;
-      containerRef.current.scrollTo({
-        left: clientWidth * index,
-        behavior: 'smooth'
-      });
-      setActiveSlide(index);
-    }
-  };
-
   const openWhatsApp = (coupon) => {
     const encodedMsg = encodeURIComponent(coupon.whatsappMessage);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMsg}`, '_blank');
   };
 
   return (
-    <section className="py-8 w-full max-w-4xl mx-auto px-4">
+    <section className="py-6 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Cabeçalho do Módulo */}
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-2">
-          <Ticket className="w-5 h-5 text-amber-500" />
-          <h2 className="text-xl sm:text-2xl font-bold text-zinc-800 tracking-tight">
-            Cupons & Fidelidade
-          </h2>
-        </div>
-        <span className="text-xs text-zinc-500 font-medium bg-zinc-100 px-2.5 py-1 rounded-full">
-          Deslize para ver mais
-        </span>
+      <div className="text-center mb-6">
+        <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 flex items-center justify-center gap-1.5">
+          <Ticket className="w-3.5 h-3.5 inline text-champagne-deep" /> Benefícios Exclusivos
+        </p>
+        <h2 className="font-display text-2xl sm:text-3xl text-graphite font-bold">
+          Cupons & Fidelidade
+        </h2>
+        <p className="text-xs sm:text-sm text-brown-muted font-body mt-1">
+          Deslize para ver todas as ofertas disponíveis para resgate.
+        </p>
       </div>
 
       {/* Janela de Rolagem do Carrossel */}
-      <div className="relative group">
+      <div className="relative max-w-5xl mx-auto">
         <div
           ref={containerRef}
           onScroll={handleScroll}
-          className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none w-full rounded-3xl"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none py-2 px-2 -mx-2 scroll-smooth cursor-grab active:cursor-grabbing justify-start sm:justify-center"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {COUPONS.map((coupon) => {
@@ -151,12 +140,12 @@ export default function CouponsCarousel({ phoneNumber = '5511999999999' }) {
             return (
               <div
                 key={coupon.id}
-                className="snap-start flex-shrink-0 w-full min-h-[220px] sm:min-h-[240px] relative overflow-hidden rounded-3xl p-6 sm:p-8 flex items-center justify-between shadow-lg"
+                className="snap-align-start flex-shrink-0 w-[300px] sm:w-[360px] max-w-[400px] h-[220px] sm:h-[240px] relative overflow-hidden rounded-3xl p-5 sm:p-6 flex items-center justify-between shadow-sm border border-champagne/30 select-none group"
               >
-                {/* Background base e borda do card */}
+                {/* Background do Card */}
                 <div className={`absolute inset-0 ${style.cardBg} rounded-3xl border border-solid`} />
 
-                {/* Grafismo decorativo (Anéis curvos de fundo, igual à imagem de referência) */}
+                {/* Grafismo decorativo curvo de fundo */}
                 <div
                   className={`absolute -left-10 -bottom-10 w-48 h-48 sm:w-64 sm:h-64 rounded-full border-2 ${style.pattern} pointer-events-none opacity-40`}
                 />
@@ -165,49 +154,46 @@ export default function CouponsCarousel({ phoneNumber = '5511999999999' }) {
                 />
 
                 {/* Lado Esquerdo: Textos, Título, Desconto e Botão Resgatar */}
-                <div className="relative z-10 flex-1 pr-4 max-w-[60%] sm:max-w-[65%] flex flex-col justify-between h-full">
+                <div className="relative z-10 flex-1 pr-3 max-w-[62%] sm:max-w-[65%] flex flex-col justify-between h-full">
                   <div>
                     {/* Badge / Tag superior */}
-                    <div className="inline-flex items-center gap-1.5 mb-2">
-                      <span className={`text-[10px] sm:text-xs px-2.5 py-0.5 rounded-full uppercase tracking-wider font-semibold ${style.badge}`}>
-                        {coupon.theme === 'black' && <Sparkles className="w-3 h-3 inline mr-1" />}
+                    <div className="inline-flex items-center gap-1 mb-1.5">
+                      <span className={`text-[9px] sm:text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider font-semibold ${style.badge}`}>
+                        {coupon.theme === 'black' && <Sparkles className="w-3 h-3 inline mr-1 fill-graphite" />}
                         {coupon.tag}
                       </span>
                     </div>
 
                     {/* Título e Valor do Desconto */}
-                    <p className={`text-xs sm:text-sm font-medium ${style.title}`}>
+                    <p className={`text-[11px] sm:text-xs font-medium ${style.title}`}>
                       {coupon.title}
                     </p>
-                    <h3 className={`text-2xl sm:text-4xl font-extrabold tracking-tight my-1 leading-tight ${style.discount}`}>
+                    <h3 className={`font-display text-xl sm:text-3xl font-extrabold tracking-tight my-0.5 leading-tight ${style.discount}`}>
                       {coupon.discount}
                     </h3>
-                    <p className={`text-xs sm:text-sm line-clamp-2 ${style.subtitle}`}>
+                    <p className={`text-[11px] sm:text-xs line-clamp-2 ${style.subtitle}`}>
                       {coupon.subtitle}
                     </p>
                   </div>
 
-                  {/* Botão de Ação: leva direto ao WhatsApp com mensagem personalizada */}
-                  <div className="mt-4 sm:mt-6">
+                  {/* Botão Resgatar */}
+                  <div className="mt-2">
                     <button
                       onClick={() => openWhatsApp(coupon)}
-                      className={`px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all duration-300 transform active:scale-95 cursor-pointer ${style.button}`}
+                      className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 transform active:scale-95 cursor-pointer ${style.button}`}
                     >
                       {coupon.buttonText}
                     </button>
                   </div>
                 </div>
 
-                {/* Lado Direito: Círculo de Destaque e Foto de Pessoa (Layout de Referência) */}
-                <div className="relative z-10 w-[120px] h-[120px] sm:w-[170px] sm:h-[170px] flex-shrink-0 flex items-center justify-center">
-                  {/* Círculo de fundo amarelo/colorido */}
+                {/* Lado Direito: Círculo de Destaque e Foto de Pessoa */}
+                <div className="relative z-10 w-[100px] h-[100px] sm:w-[130px] sm:h-[130px] flex-shrink-0 flex items-center justify-center">
                   <div className={`absolute inset-0 rounded-full ${coupon.circleBg} scale-95 opacity-90 shadow-inner`} />
-
-                  {/* Foto da modelo recortada dentro do círculo */}
                   <img
                     src={coupon.image}
                     alt={coupon.title}
-                    className="w-full h-full object-cover rounded-full relative z-10 drop-shadow-md border-2 border-white/40"
+                    className="w-full h-full object-cover rounded-full relative z-10 drop-shadow-md border-2 border-white/40 pointer-events-none"
                   />
                 </div>
               </div>
@@ -215,40 +201,19 @@ export default function CouponsCarousel({ phoneNumber = '5511999999999' }) {
           })}
         </div>
 
-        {/* Setas de navegação lateral (visíveis no hover ou no desktop) */}
-        <button
-          onClick={() => scrollToSlide(Math.max(0, activeSlide - 1))}
-          disabled={activeSlide === 0}
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/80 backdrop-blur-md text-zinc-800 flex items-center justify-center shadow-md disabled:opacity-0 transition-all hover:bg-white"
-          aria-label="Cupom anterior"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-
-        <button
-          onClick={() => scrollToSlide(Math.min(COUPONS.length - 1, activeSlide + 1))}
-          disabled={activeSlide === COUPONS.length - 1}
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/80 backdrop-blur-md text-zinc-800 flex items-center justify-center shadow-md disabled:opacity-0 transition-all hover:bg-white"
-          aria-label="Próximo cupom"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
-
-      {/* Indicadores de slides (Dots) estilo pílula ativa */}
-      <div className="flex justify-center items-center gap-1.5 mt-4">
-        {COUPONS.map((_, dotIdx) => (
-          <button
-            key={dotIdx}
-            onClick={() => scrollToSlide(dotIdx)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              dotIdx === activeSlide
-                ? 'w-6 bg-amber-500'
-                : 'w-1.5 bg-zinc-300 hover:bg-zinc-400'
-            }`}
-            aria-label={`Ir para o cupom ${dotIdx + 1}`}
-          />
-        ))}
+        {/* Indicadores sutis de navegação (Dots inferiores) */}
+        <div className="flex justify-center items-center gap-1.5 mt-4">
+          {COUPONS.map((_, dotIdx) => (
+            <div
+              key={dotIdx}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                dotIdx === activeSlide
+                  ? 'w-6 bg-champagne-deep'
+                  : 'w-1.5 bg-champagne/40'
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

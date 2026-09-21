@@ -10,6 +10,10 @@ import AiChatConsole from '@/components/bio/AiChatConsole';
 import AiChatWidget from '@/components/bio/AiChatWidget';
 import SocialProofBadge from '@/components/bio/SocialProofBadge';
 import HomeCareShowcase from '@/components/bio/HomeCareShowcase';
+import ClinicalStaffShowcase from '@/components/bio/ClinicalStaffShowcase';
+import AITriageBar from '@/components/bio/AITriageBar';
+import SmartEncaixeCarousel from '@/components/bio/SmartEncaixeCarousel';
+import ConvenienceLinks from '@/components/bio/ConvenienceLinks';
 
 export default function Home() {
   const chat = useChat();
@@ -33,11 +37,15 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 lg:gap-8">
           <main className="min-w-0">
             {/* <QuickPills onAskAi={handleAskAi} /> */}
+            <AITriageBar onSelectComplaint={undefined}/>
             <BeforeAfterCarousel onAskAi={handleAskAi} />
             <ServiceShowcase onAskAi={handleAskAi} />
+            <ClinicalStaffShowcase/>
             <SocialProof />
+            <SmartEncaixeCarousel/>
             <CouponsCarousel/>
             <HomeCareShowcase />
+            <ConvenienceLinks />
           </main>
 
           <aside className="lg:block min-w-0">
