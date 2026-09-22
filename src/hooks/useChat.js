@@ -4,7 +4,7 @@ const WEBHOOK_URL = import.meta.env.VITE_WEBHHOOK_URL;
 
 const WELCOME = {
   role: 'assistant',
-  text: 'Me conta, o que você quer transformar no seu visual hoje, princesa?',
+  text: 'Me conta, o que você quer transformar no seu visual hoje?',
   quickReplies: ['Ver Tratamentos', 'Valores e Condições', 'Agendar Consulta']
 };
 

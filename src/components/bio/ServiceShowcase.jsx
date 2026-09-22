@@ -90,11 +90,11 @@ export default function ServiceShowcase({ onAskAi }) {
   };
 
   return (
-    <section className="py-2 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="pb-6 sm:px-6 lg:px-8 relative overflow-hidden">
       <ScrollReveal>
-        <div className="text-center mb-6">
+        <div className="text-start">
           <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2">
-            Vitrine de Procedimentos Premium
+            Procedimentos
           </p>
           {/* <h2 className="font-display text-3xl text-graphite">Procedimentos Premium</h2> */}
         </div>

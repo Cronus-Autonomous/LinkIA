@@ -21,22 +21,35 @@ const DOCTORS = [
     proceduresCount: '1.420+',
     satisfactionRate: '99%',
     verified: true,
-    photo: 'https://images.unsplash.com/photo-1594824813566-78a9c3365851?q=80&w=800&auto=format&fit=crop',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-dermatologist-examining-a-patients-face-41551-large.mp4',
+    photo: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790037154/2026-09-21_21-31.png',
+    videoUrl: 'https://res.cloudinary.com/xiupvhfs/video/upload/v1790037155/350db29a32c1a26bdfbcc7acd7b6da5a_360w.mp4',
     whatsappMessage: 'Olá! Gostaria de agendar uma consulta de avaliação presencial com a Dra. Sophie Bennett.'
   },
   {
     id: 'doc-2',
-    name: 'Dr. Lucas Silveira',
+    name: 'Dra. Luana Silveira',
     crmRqe: 'CRM/SP 192.401 • RQE 8412',
     specialty: 'Dermatologista & Especialista em Injetáveis',
     bio: 'Foco total em bioestimuladores de colágeno, prevenção de envelhecimento e tratamentos a laser.',
     proceduresCount: '2.100+',
     satisfactionRate: '98%',
     verified: true,
-    photo: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-doctor-explaining-a-treatment-to-a-patient-41554-large.mp4',
-    whatsappMessage: 'Olá! Gostaria de agendar uma consulta de avaliação com o Dr. Lucas Silveira.'
+    photo: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790038103/50171c86420465a36c0e214311e4d7c7.jpg',
+    videoUrl: 'https://res.cloudinary.com/xiupvhfs/video/upload/v1790037961/2f823876b804222be565bc474d806ea6_t1.mp4',
+    whatsappMessage: 'Olá! Gostaria de agendar uma consulta de avaliação com a Dra. Luana Silveira'
+  },
+  {
+    id: 'doc-3',
+    name: 'Dr. Bento Amandrich',
+    crmRqe: 'CRM/SP 132.443 • RQE 8122',
+    specialty: 'Dermatologista',
+    bio: 'Foco em prevenção de envelhecimento e tratamentos a laser com bioestimuladores de colágeno.',
+    proceduresCount: '1.300+',
+    satisfactionRate: '98%',
+    verified: true,
+    photo: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790038665/2026-09-21_21-56.png',
+    videoUrl: 'https://res.cloudinary.com/xiupvhfs/video/upload/v1790038665/018c099249cfa1e876c84741058a0b11_240w.mp4',
+    whatsappMessage: 'Olá! Gostaria de agendar uma consulta de avaliação com a Dra. Luana Silveira'
   }
 ];
 
@@ -92,7 +105,7 @@ function DoctorFlipCard({ doctor, onSchedule }) {
         }`}
       >
         {/* ================= FACE FRONTAL ================= */}
-        <div className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden shadow-sm border border-champagne/30 bg-graphite flex flex-col justify-between [backface-visibility:hidden]">
+        <div className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between [backface-visibility:hidden]">
           {/* Imagem do Profissional de Fundo */}
           <img
             src={doctor.photo}
@@ -239,16 +252,17 @@ export default function ClinicalStaffShowcase({ phoneNumber = '5511999999999' })
   };
 
   return (
-    <section className="py-6 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="pb-6 w-full max-w-5xl mx-auto sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Cabeçalho do Módulo */}
-      <div className="text-center mb-6">
-        <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 flex items-center justify-center gap-1.5">
-          <ShieldCheck className="w-3.5 h-3.5 inline" /> Corpo Clínico & Autoridade
+      <div className="text-start mb-2">
+        <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2 gap-1.5">
+          {/* <ShieldCheck className="w-3.5 h-3.5 inline" /> */}
+          NOSSA EQUIPE
         </p>
-        <h2 className="font-display text-2xl sm:text-3xl text-graphite font-bold">
+        <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
           Especialistas de Confiança
         </h2>
-        <p className="text-xs sm:text-sm text-brown-muted font-body mt-1">
+        <p className="hidden sm:flex text-xs sm:text-sm text-brown-muted font-body mt-1">
           Toque em "Vídeo" para ver a apresentação da profissional.
         </p>
       </div>

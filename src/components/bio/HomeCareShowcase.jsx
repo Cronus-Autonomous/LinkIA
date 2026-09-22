@@ -47,7 +47,7 @@ const PRODUCTS = [
     tagType: 'discount',
     stock: 2,
     bgColor: 'bg-champagne/20 border-champagne/30',
-    image: 'https://images.unsplash.com/photo-1608248597261-833244675b16?q=80&w=600&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790038892/45fe5ea486ad474efe8b96bc14d2a3f1.jpg',
     procedures: ['peeling', 'pos-cirurgico', 'skincare'],
     description: 'Restaura a barreira cutânea e acalma a pele sensibilizada por procedimentos invasivos ou queimaduras solares.',
     indications: ['Recuperação Pós-Laser/Peeling', 'Peles Sensíveis', 'Hidratação Profunda 24h']
@@ -77,7 +77,7 @@ const PRODUCTS = [
     tagType: 'bestseller',
     stock: 3,
     bgColor: 'bg-amber-50 border-amber-200/50',
-    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=600&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790039606/2026-09-21_22-12.png',
     procedures: ['peeling', 'botox', 'skincare', 'pos-cirurgico'],
     description: 'Proteção contra luz azul e raios UVA/UVB com toque seco e cobertura natural de imperfeições.',
     indications: ['Prevenção de Manchas Pós-Procedimento', 'Uso Diário Ocultador de Vermelhidão']
@@ -107,7 +107,7 @@ function ProductFlipCard({ product, onReserve }) {
   };
 
   return (
-    <div className="snap-align-start flex-shrink-0 w-[270px] sm:w-[300px] h-[390px] [perspective:1000px] group select-none">
+    <div className="snap-align-start flex-shrink-0 w-[270px] sm:w-[300px] h-[400px] [perspective:1000px] group select-none">
       {/* Container 3D */}
       <div
         className={`relative w-full h-full duration-700 [transform-style:preserve-3d] transition-transform ${
@@ -289,24 +289,25 @@ export default function HomeCareShowcase({ phoneNumber = '5511999999999' }) {
   };
 
   return (
-    <section className="py-6 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="pb-6 w-full max-w-5xl mx-auto sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Cabeçalho do Módulo */}
-      <div className="text-center mb-5">
-        <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 flex items-center justify-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 inline fill-champagne-deep" /> Manutenção & Cuidados
+      <div className="text-start mb-2 ">
+        <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 gap-1.5">
+          {/* <Sparkles className="w-3.5 h-3.5 inline fill-champagne-deep" /> */}
+          PRODUTOS
         </p>
-        <h2 className="font-display text-2xl sm:text-3xl text-graphite font-bold">
+        <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
           Vitrine Home Care
         </h2>
-        <p className="text-xs sm:text-sm text-brown-muted font-body mt-1">
+        <p className="hidden sm:flex text-xs sm:text-sm text-brown-muted font-body mt-1">
           Produtos recomendados para potencializar os resultados do seu procedimento.
         </p>
       </div>
 
       {/* 1. Mini Carrossel de Filtros por Procedimento */}
-      <div className="relative mb-5 max-w-2xl mx-auto">
+      <div className="relative mb-2 max-w-2xl mx-auto">
         <div
-          className="flex gap-2 overflow-x-auto scrollbar-none py-1 px-1 scroll-smooth justify-start sm:justify-center"
+          className="flex gap-2 overflow-x-auto scrollbar-none px-1 scroll-smooth justify-start sm:justify-center"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {PROCEDURES.map((proc) => {

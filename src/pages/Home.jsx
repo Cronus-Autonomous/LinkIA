@@ -37,7 +37,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 lg:gap-8">
           <main className="min-w-0">
             {/* <QuickPills onAskAi={handleAskAi} /> */}
-            <AITriageBar onSelectComplaint={undefined}/>
+            {/* <AITriageBar onSelectComplaint={undefined}/> */}
             <BeforeAfterCarousel onAskAi={handleAskAi} />
             <ServiceShowcase onAskAi={handleAskAi} />
             <ClinicalStaffShowcase/>

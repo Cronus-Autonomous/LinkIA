@@ -52,11 +52,12 @@ export default function ConvenienceLinks({
   parkingInfo = 'Estacionamento conveniado com valet no local'
 }) {
   return (
-    <section className="py-6 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <section className="pb-6 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
       {/* Cabeçalho do Módulo */}
-      <div className="text-center mb-6">
-        <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 flex items-center justify-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 inline fill-champagne-deep" /> Facilidades & Acesso
+      <div className="hidden sm:block text-start mb-2">
+        <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 gap-1.5">
+          {/* <Sparkles className="w-3.5 h-3.5 inline fill-champagne-deep" /> */}
+          Facilidades & Acesso
         </p>
         <h2 className="font-display text-2xl sm:text-3xl text-graphite font-bold">
           Links de Conveniência

@@ -255,21 +255,21 @@ export default function SocialProof() {
   };
 
   return (
-    <section className="py-10 relative overflow-hidden">
+    <section className="pb-6 relative overflow-hidden">
       <ScrollReveal>
-        <div className="text-center max-w-xl mx-auto px-4 mb-6">
-          <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1">
-            Depoimentos & Resultados
+        <div className="text-start max-w-xl mx-auto">
+          <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2">
+            Depoimentos
           </p>
-          <h2 className="font-display text-2xl sm:text-3xl text-graphite font-bold">
+          <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
             Experiências Inspiradoras
           </h2>
-          <p className="text-xs sm:text-sm text-brown-muted font-body mt-1">
+          <p className="hidden sm:flex text-xs sm:text-sm text-brown-muted font-body mt-1">
             Junte-se a nós e torne-se nossa próxima história de sucesso
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
           {/* Carrossel Principal com Suporte a Gestos e Drag */}
           <div
             ref={scrollRef}
@@ -278,7 +278,7 @@ export default function SocialProof() {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {/* ================= CARD 1: RESUMO COM TEXTURA DOURADA METÁLICA ================= */}
-            <div className="snap-start flex-shrink-0 w-[280px] sm:w-[320px] h-[340px] bg-gradient-to-br from-[#fceabb] via-[#f8b500] to-[#e6a100] text-graphite p-5 rounded-3xl flex flex-col justify-between shadow-md border border-amber-300/60 relative overflow-hidden">
+            <div className="snap-start flex-shrink-0 w-[280px] sm:w-[320px] h-[250px] bg-gradient-to-br from-[#fceabb] via-[#f8b500] to-[#e6a100] text-graphite p-5 rounded-3xl flex flex-col justify-between shadow-md border border-amber-300/60 relative overflow-hidden">
               {/* 1. Sub-card Superior: Nota + Estrelas na esquerda | Logo do Google na direita */}
               <div className="bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-white/60 shadow-xs flex items-center justify-between">
                 <div>
@@ -303,27 +303,51 @@ export default function SocialProof() {
               </div>
               {/* 2. Sub-card Inferior: Avatars com Fotos Reais + Contador */}
               <div className="bg-graphite/90 backdrop-blur-md text-white p-4 rounded-2xl border border-white/10 shadow-xs flex items-center gap-3">
-                <div className="flex -space-x-3 overflow-hidden shrink-0">
-                  <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop"
-                    alt="Cliente 1"
-                    className="inline-block h-9 w-9 rounded-full object-cover"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=150&auto=format&fit=crop"
-                    alt="Cliente 2"
-                    className="inline-block h-9 w-9 rounded-full object-cover"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop"
-                    alt="Cliente 3"
-                    className="inline-block h-9 w-9 rounded-full object-cover"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop"
-                    alt="Cliente 3"
-                    className="inline-block h-9 w-9 rounded-full object-cover"
-                  />
+                <div className="block">
+                  <div className="flex -space-x-3 overflow-hidden shrink-0">
+                    <img
+                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop"
+                      alt="Cliente 1"
+                      className="inline-block h-9 w-9 rounded-full object-cover"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=150&auto=format&fit=crop"
+                      alt="Cliente 2"
+                      className="inline-block h-9 w-9 rounded-full object-cover"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop"
+                      alt="Cliente 3"
+                      className="inline-block h-9 w-9 rounded-full object-cover"
+                    />
+                    <img
+                      src="https://res.cloudinary.com/xiupvhfs/image/upload/v1790042139/2026-09-21_22-55.png"
+                      alt="Cliente 3"
+                      className="inline-block h-9 w-9 rounded-full object-cover"
+                    />
+                  </div>
+                  <div className="flex -space-x-3 overflow-hidden shrink-0">
+                    <img
+                      src="https://res.cloudinary.com/xiupvhfs/image/upload/v1790042073/2026-09-21_22-52.png"
+                      alt="Cliente 1"
+                      className="inline-block h-9 w-9 rounded-full object-cover"
+                    />
+                    <img
+                      src="https://res.cloudinary.com/xiupvhfs/image/upload/v1790042193/2026-09-21_22-56.png"
+                      alt="Cliente 2"
+                      className="inline-block h-9 w-9 rounded-full object-cover"
+                    />
+                    <img
+                      src="https://res.cloudinary.com/xiupvhfs/image/upload/v1790042267/2026-09-21_22-57.png"
+                      alt="Cliente 3"
+                      className="inline-block h-9 w-9 rounded-full object-cover"
+                    />
+                    <img
+                      src="https://res.cloudinary.com/xiupvhfs/image/upload/v1790042307/2026-09-21_22-58.png"
+                      alt="Cliente 3"
+                      className="inline-block h-9 w-9 rounded-full object-cover"
+                    />
+                  </div>
                 </div>
                 <div>
                   <p className="font-extrabold text-base leading-none text-amber-300">+1.500</p>

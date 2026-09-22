@@ -112,16 +112,17 @@ export default function CouponsCarousel({ phoneNumber = '5511999999999' }) {
   };
 
   return (
-    <section className="py-6 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="pb-6 w-full max-w-5xl mx-auto sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Cabeçalho do Módulo */}
-      <div className="text-center mb-6">
-        <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 flex items-center justify-center gap-1.5">
-          <Ticket className="w-3.5 h-3.5 inline text-champagne-deep" /> Benefícios Exclusivos
+      <div className="text-start mb-2">
+        <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold flex gap-1.5">
+          {/* <Ticket className="w-3.5 h-3.5 inline text-champagne-deep" /> */}
+          Benefícios Exclusivos
         </p>
-        <h2 className="font-display text-2xl sm:text-3xl text-graphite font-bold">
+        <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
           Cupons & Fidelidade
         </h2>
-        <p className="text-xs sm:text-sm text-brown-muted font-body mt-1">
+        <p className="hidden sm:flex text-xs sm:text-sm text-brown-muted font-body mt-1">
           Deslize para ver todas as ofertas disponíveis para resgate.
         </p>
       </div>
