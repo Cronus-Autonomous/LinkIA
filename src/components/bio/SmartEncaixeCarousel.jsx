@@ -7,6 +7,7 @@ import {
   UserCheck, 
   ArrowUpRight 
 } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 // Dados simulados das vagas de última hora (Smart Encaixe)
 const INITIAL_SLOTS = [
@@ -148,19 +149,19 @@ export default function SmartEncaixeCarousel({ phoneNumber = '5511999999999' }) 
   };
 
   return (
-    <section className="pb-6 w-full max-w-5xl mx-auto sm:px-6 lg:px-8 relative overflow-hidden">
+    <ScrollReveal className="pb-6 w-full max-w-5xl mx-auto relative">
       {/* Cabeçalho do Módulo */}
       <div className="text-start mb-2">
         <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 gap-1.5">
           {/* <Sparkles className="w-3.5 h-3.5 inline fill-champagne-deep" /> */}
           Vagas relâmpago
         </p>
-        <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
+        {/* <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
           Smart Encaixes & Oportunidades
-        </h2>
-        <p className="hidden sm:flex text-xs sm:text-sm text-brown-muted font-body mt-1">
+        </h2> */}
+        {/* <p className="hidden sm:flex text-xs sm:text-sm text-brown-muted font-body mt-1">
           Deslize para conferir as vagas com condições especiais por tempo limitado.
-        </p>
+        </p> */}
       </div>
 
       {/* Carrossel de Cards por Gestos */}
@@ -194,6 +195,6 @@ export default function SmartEncaixeCarousel({ phoneNumber = '5511999999999' }) 
           ))}
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

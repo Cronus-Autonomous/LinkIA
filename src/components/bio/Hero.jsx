@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import VerifiedBadge from './VerifiedBadge';
+import { AVATARES } from '@/components/bio/SocialProofBadge';
 
 const HERO_VIDEO = [
   'https://res.cloudinary.com/xiupvhfs/video/upload/v1789690234/68569544ba39420cf83604c3ce62ca01_720w.mp4',
@@ -7,22 +8,14 @@ const HERO_VIDEO = [
   'https://res.cloudinary.com/xiupvhfs/video/upload/v1789690229/5d576ef597f2b8c305ded7b7f0a4817f_720w.mp4',
 ];
 
-const HERO_POSTER = 'https://media.base44.com/images/public/6aac04518ddaa9a3b34c4579/6a86e7519_generated_image.png';
+const HERO_POSTER = 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790211274/Inserir_um_subt%C3%ADtulo_1.png';
 
-const AVATAR = [
-  'https://res.cloudinary.com/xiupvhfs/image/upload/f_auto,q_auto/1',
-  'https://res.cloudinary.com/xiupvhfs/image/upload/v1789690075/5.png',
-  'https://res.cloudinary.com/xiupvhfs/image/upload/v1789690075/6.png',
-  'https://res.cloudinary.com/xiupvhfs/image/upload/v1789690075/7.png',
-  'https://res.cloudinary.com/xiupvhfs/image/upload/v1789690075/4.png',
-  'https://res.cloudinary.com/xiupvhfs/image/upload/v1789690074/3.png',
-  'https://res.cloudinary.com/xiupvhfs/image/upload/v1789690074/2.png'
-];
+const AVATAR = AVATARES;
 
 const COPY_SLIDES = [
   {
-    headline: <>A sua marca merece mais do que um simples <span className="gold-text">link na Bio</span>.</>,
-    subheadline: 'Faça como centenas de empresárias: ative sua assistente de IA, atenda visitantes em segundos e transforme tráfego do Instagram em clientes pagantes no piloto automático.'
+    headline: <>Faça como centenas de empresárias: ative sua assistente de IA, atenda visitantes em segundos e conquiste clientes pagantes no piloto automático.</>,
+    subheadline: 'A sua marca merece mais do que um simples link na Bio'
   },
   {
     headline: <>Pare de perder clientes no Link da Bio por <span className="gold-text">demora no atendimento</span>.</>,
@@ -53,19 +46,19 @@ export default function Hero() {
     return () => clearInterval(avatarInterval);
   }, []);
 
-  // Rotação das Copy's com transição de Fade (a cada 5s)
-  useEffect(() => {
-    const copyInterval = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setCurrentCopyIndex((prev) => (prev + 1) % COPY_SLIDES.length);
-        setFade(true);
-      }, 300);
-    }, 8000);
-    return () => clearInterval(copyInterval);
-  }, []);
+  // Rotação das Copy's com transição de Fade (a cada 8s)
+  // useEffect(() => {
+  //   const copyInterval = setInterval(() => {
+  //     setFade(false);
+  //     setTimeout(() => {
+  //       setCurrentCopyIndex((prev) => (prev + 1) % COPY_SLIDES.length);
+  //       setFade(true);
+  //     }, 300);
+  //   }, 8000);
+  //   return () => clearInterval(copyInterval);
+  // }, []);
 
-  // Rotação dos Vídeos
+  // Rotação dos Vídeos (Mobile e Tablet)
   const handleVideoEnded = () => {
     setCurrentVideoIndex((prev) => (prev + 1) % HERO_VIDEO.length);
   };
@@ -77,12 +70,18 @@ export default function Hero() {
   }, [currentVideoIndex]);
 
   return (
-    <section className="relative w-full min-h-[100vh] sm:min-h-[92vh] flex items-center justify-center overflow-hidden bg-black">
-      {/* Vídeo de fundo */}
+    <section className="relative w-full min-h-[100vh] sm:min-h-[100vh] flex items-center justify-center overflow-hidden bg-black">
+      {/* Background Imagem (Exclusivo para Desktop >= 1024px) */}
+      <div 
+        className="hidden lg:block absolute inset-0 w-full h-full bg-cover bg-center opacity-20 transition-opacity duration-700"
+        style={{ backgroundImage: `url(${HERO_POSTER})` }}
+      />
+
+      {/* Vídeo de fundo (Exclusivo para Mobile e Tablet < 1024px) */}
       <video
         ref={videoRef}
         key={HERO_VIDEO[currentVideoIndex]}
-        className="absolute inset-0 w-full h-full object-cover opacity-40 sm:opacity-30 transition-opacity duration-700"
+        className="block lg:hidden absolute inset-0 w-full h-full object-cover opacity-40 sm:opacity-30 transition-opacity duration-700"
         autoPlay
         muted
         playsInline
@@ -118,26 +117,26 @@ export default function Hero() {
         {/* Bloco Copy Dinâmico com suporte a transição fade */}
         <div className={`min-h-[160px] sm:min-h-[140px] flex flex-col items-center justify-center transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'}`}>
           <h1 className="font-display text-3xl sm:text-4xl lg:text-[42px] font-bold leading-tight text-white drop-shadow-sm mb-3">
-            {COPY_SLIDES[currentCopyIndex].headline}
+            {COPY_SLIDES[0].headline}
           </h1>
 
           <p className="text-white/85 text-sm sm:text-base font-body max-w-xl mx-auto leading-relaxed drop-shadow">
-            {COPY_SLIDES[currentCopyIndex].subheadline}
+            {COPY_SLIDES[0].subheadline}
           </p>
         </div>
 
         {/* Botão de Ação CTA */}
-        <a
+        {/* <a
           href="https://wa.me/5543996084644?text=Testei%20o%20LinkIA%20e%20quero%20queimar%20meu%20CUPOM%2020%25"
           target="_blank"
           rel="noopener noreferrer"
           className="gold-button px-8 py-4 text-sm sm:text-base font-semibold font-body shadow-lg hover:scale-105 transition-transform mt-6 mb-8"
         >
-          Quero o LinkIA com 20% OFF
-        </a>
+          Quero meu LinkIA agora
+        </a> */}
 
         {/* Indicator IA Online */}
-        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-semibold backdrop-blur-md">
+        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-semibold backdrop-blur-md mt-20">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           Assistente IA Online Agora
         </span>

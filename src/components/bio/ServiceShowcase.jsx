@@ -7,35 +7,70 @@ const SERVICES = [
   {
     name: 'Harmonização Facial',
     desc: 'Equilíbrio com bioestimuladores e ácido hialurônico de alta pureza.',
-    img: 'https://media.base44.com/images/public/6aac04518ddaa9a3b34c4579/42b214010_generated_image.png',
+    img: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790256776/2026-09-24_10-32.png',
     duration: '60 min · resultado progressivo',
     tag:''
   },
   {
     name: 'Toxina Botulínica',
     desc: 'Suavização de rugas de expressão com técnica premium e naturalidade.',
-    img: 'https://media.base44.com/images/public/6aac04518ddaa9a3b34c4579/7f038b5f6_generated_image.png',
+    img: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790257697/2026-09-24_10-45.png',
     duration: '30 min · efeito em 7 dias',
     tag: ''
   },
   {
-    name: 'Skincare Clínico de Luxo',
+    name: 'Skincare Clínico',
     desc: 'Protocolos personalizados com ativos premium para pele radiante.',
     img: 'https://media.base44.com/images/public/6aac04518ddaa9a3b34c4579/ebd9f3a75_generated_image.png',
     duration: '90 min · protocolo 90 dias',
     tag: 'novidade'
+  },
+  {
+    name: 'Brow Lamination',
+    desc: 'Alinhamento e nutrição para sobrancelhas mais encorpadas.',
+    img: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790261566/ed30d3795a16e8ada6d56943013311b3.jpg',
+    duration: '50 min · durabilidade de até 6 semanas',
+    tag: 'tendência'
+  },
+  {
+    name: 'Design de Sobrancelhas',
+    desc: 'Mapeamento facial exclusivo para valorizar e harmonizar o olhar.',
+    img: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790261725/0aa93eb55f54cd46289b0459d441f838.jpg',
+    duration: '40 min · efeito imediato',
+    tag: ''
+  },
+  {
+    name: 'Lash Lifting',
+    desc: 'Curvatura natural dos cílios com tratamento de hidratação profunda.',
+    img: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790261890/2995cfd060bb76c35c7b9ded9fb03218.jpg',
+    duration: '60 min · durabilidade de até 8 semanas',
+    tag: ''
+  },
+  {
+    name: 'Micropigmentação Labial',
+    desc: 'Revitalização de cor e contorno labial com tom natural e saudável.',
+    img: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790261970/4122b84f00e6060537e5010c2624094b.jpg',
+    duration: '120 min · resultado de longa duração',
+    tag: 'exclusivo'
+  },
+  {
+    name: 'Dermaplaning & Glow',
+    desc: 'Esfoliação profunda para máxima luminosidade.',
+    img: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790262151/0737f0f4d7b32a7ff492cceea85ffa0d.jpg',
+    duration: '45 min · renovação celular imediata',
+    tag: ''
   }
 ];
 
 function ServiceCard({ service, onAskAi }) {
   return (
     <div className="glass-card overflow-hidden h-full flex flex-col group min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0 snap-align-start select-none">
-      <div className="relative h-32 overflow-hidden">
+      <div className="relative h-40 overflow-hidden">
         <Image
           src={service.img}
           alt={service.name}
-          fittingType="fill"
-          className="w-full h-full transition-transform duration-700 group-hover:scale-105 pointer-events-none"
+          fittingType="cover" /* Alterado de "fill" para "cover" */
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none" /* Adicionado object-cover */
         />
         <div className="absolute inset-0 bg-gradient-to-t from-graphite/55 to-transparent" />
         <span className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/70 backdrop-blur-md border border-champagne/30 text-[11px] font-medium text-graphite">
@@ -90,13 +125,12 @@ export default function ServiceShowcase({ onAskAi }) {
   };
 
   return (
-    <section className="pb-6 sm:px-6 lg:px-8 relative overflow-hidden">
+    <ScrollReveal className="pb-6">
       <ScrollReveal>
         <div className="text-start">
           <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2">
             Procedimentos
           </p>
-          {/* <h2 className="font-display text-3xl text-graphite">Procedimentos Premium</h2> */}
         </div>
       </ScrollReveal>
 
@@ -145,6 +179,6 @@ export default function ServiceShowcase({ onAskAi }) {
           </div>
         </div>
       </ScrollReveal>
-    </section>
+    </ScrollReveal>
   );
 }

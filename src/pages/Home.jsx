@@ -14,6 +14,7 @@ import ClinicalStaffShowcase from '@/components/bio/ClinicalStaffShowcase';
 import AITriageBar from '@/components/bio/AITriageBar';
 import SmartEncaixeCarousel from '@/components/bio/SmartEncaixeCarousel';
 import ConvenienceLinks from '@/components/bio/ConvenienceLinks';
+import QuickPills from '@/components/bio/QuickPills'
 
 export default function Home() {
   const chat = useChat();
@@ -33,7 +34,7 @@ export default function Home() {
       <Hero />
       <SocialProofBadge/>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+      <div className="max-w-7xl mx-auto sm:px-6 pt-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 lg:gap-8">
           <main className="min-w-0">
             {/* <QuickPills onAskAi={handleAskAi} /> */}

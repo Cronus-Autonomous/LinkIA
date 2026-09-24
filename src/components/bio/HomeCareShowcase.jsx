@@ -9,6 +9,7 @@ import {
   MessageCircle
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import ScrollReveal from './ScrollReveal';
 
 // Categorias/Procedimentos para o mini-carrossel de filtros
 const PROCEDURES = [
@@ -289,25 +290,25 @@ export default function HomeCareShowcase({ phoneNumber = '5511999999999' }) {
   };
 
   return (
-    <section className="pb-6 w-full max-w-5xl mx-auto sm:px-6 lg:px-8 relative overflow-hidden">
+    <ScrollReveal className="pb-6 w-full max-w-5xl mx-auto relative overflow-hidden">
       {/* Cabeçalho do Módulo */}
       <div className="text-start mb-2 ">
         <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 gap-1.5">
           {/* <Sparkles className="w-3.5 h-3.5 inline fill-champagne-deep" /> */}
           PRODUTOS
         </p>
-        <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
+        {/* <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
           Vitrine Home Care
         </h2>
         <p className="hidden sm:flex text-xs sm:text-sm text-brown-muted font-body mt-1">
           Produtos recomendados para potencializar os resultados do seu procedimento.
-        </p>
+        </p> */}
       </div>
 
       {/* 1. Mini Carrossel de Filtros por Procedimento */}
-      <div className="relative mb-2 max-w-2xl mx-auto">
+      <div className="relative mb-2">
         <div
-          className="flex gap-2 overflow-x-auto scrollbar-none px-1 scroll-smooth justify-start sm:justify-center"
+          className="flex gap-2 overflow-x-auto scrollbar-none px-1 scroll-smooth"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {PROCEDURES.map((proc) => {
@@ -337,7 +338,7 @@ export default function HomeCareShowcase({ phoneNumber = '5511999999999' }) {
         <div
           ref={productsScrollRef}
           onScroll={handleScroll}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none py-2 px-2 -mx-2 scroll-smooth cursor-grab active:cursor-grabbing justify-start sm:justify-center"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none py-2 scroll-smooth cursor-grab active:cursor-grabbing"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {filteredProducts.length > 0 ? (
@@ -371,6 +372,6 @@ export default function HomeCareShowcase({ phoneNumber = '5511999999999' }) {
           </div>
         )}
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

@@ -2,14 +2,12 @@ import React from 'react';
 import { 
   MapPin, 
   Navigation, 
-  MessageCircle, 
   Globe, 
   Car, 
   BellRing, 
   FileText, 
   Instagram, 
   ChevronRight,
-  Sparkles 
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
@@ -52,23 +50,23 @@ export default function ConvenienceLinks({
   parkingInfo = 'Estacionamento conveniado com valet no local'
 }) {
   return (
-    <section className="pb-6 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <section className="pb-6 w-full max-w-5xl mx-auto space-y-6">
       {/* Cabeçalho do Módulo */}
-      <div className="hidden sm:block text-start mb-2">
-        <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 gap-1.5">
+      <div className="hidden sm:block text-start">
+        <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold">
           {/* <Sparkles className="w-3.5 h-3.5 inline fill-champagne-deep" /> */}
           Facilidades & Acesso
         </p>
-        <h2 className="font-display text-2xl sm:text-3xl text-graphite font-bold">
+        {/* <h2 className="font-display text-2xl sm:text-3xl text-graphite font-bold">
           Links de Conveniência
         </h2>
         <p className="text-xs sm:text-sm text-brown-muted font-body mt-1">
           Acesso rápido a rotas, canal VIP e orientações importantes.
-        </p>
+        </p> */}
       </div>
 
       {/* GRID DOS DOIS CARDS PRINCIPAIS: Lado a Lado no Tablet/PC (md:grid-cols-2) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2">
         
         {/* CARD PRINCIPAL 1: Widget do Canal VIP */}
         <div className="relative overflow-hidden rounded-3xl p-5 sm:p-6 bg-graphite text-white shadow-sm border border-champagne/40 flex flex-col justify-between h-full">

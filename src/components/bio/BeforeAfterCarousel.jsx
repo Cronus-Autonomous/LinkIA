@@ -12,11 +12,25 @@ const TRANSFORMATIONS = [
     length: 221
   },
   {
+    tag: 'Microp Labial',
+    before: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790263649/2026-09-24_12-27.png',
+    after: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790263649/2026-09-24_12-27_1.png',
+    caption: 'Revitalização de cor e contorno com resultado de longa duração',
+    length: 440
+  },
+  {
     tag: 'Skincare Premium',
     before: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789697516/a2.png',
     after: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789697515/d2.png',
     caption: 'Protocolo de skincare clínico — 90 dias de tratamento',
     length: 190
+  },
+  {
+    tag: 'Lash Lifting',
+    before: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790264277/2026-09-24_12-37.png',
+    after: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790264277/2026-09-24_12-37_1.png',
+    caption: 'Curvatura natural dos cílios com tratamento de hidratação profunda',
+    length: 763
   },
   {
     tag: 'Botox & Toxina',
@@ -26,7 +40,7 @@ const TRANSFORMATIONS = [
     length: 330
   },
   {
-    tag: 'Bioestimulador de colágeno',
+    tag: 'Bioest. de colágeno',
     before: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789698478/a4.png',
     after: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789698453/d4.png',
     caption: 'Bioestimulador de colágeno — firmeza que dura até 2 anos',
@@ -45,7 +59,7 @@ const TRANSFORMATIONS = [
     after: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1789699110/d6.png',
     caption: 'Fios de sustentação — lifting sem cirurgia, resultado imediato',
     length: 130
-  },
+  }
 ];
 
 export default function BeforeAfterCarousel({ onAskAi }) {
@@ -82,7 +96,7 @@ export default function BeforeAfterCarousel({ onAskAi }) {
       <div className="flex items-end justify-between px-1">
         <div>
           <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2">Resultados Reais</p>
-          <h2 className="hidden sm:flex font-display text-2xl text-graphite">Transformações Antes & Depois</h2>
+          {/* <h2 className="hidden sm:flex font-display text-2xl text-graphite">Transformações Antes & Depois</h2> */}
         </div>
         <div className="hidden sm:flex items-center gap-2">
           <button onClick={() => scrollTo(Math.max(0, active - 1))} aria-label="Anterior" className="w-10 h-10 rounded-full pill-quick flex items-center justify-center">
@@ -97,7 +111,7 @@ export default function BeforeAfterCarousel({ onAskAi }) {
       <div
         ref={trackRef}
         onScroll={onScroll}
-        className="no-scrollbar flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-1 px-1"
+        className="no-scrollbar flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 px-1"
       >
         {TRANSFORMATIONS.map((t, i) => (
           <div key={i} className="snap-center shrink-0 w-[80%] max-w-[280px]">

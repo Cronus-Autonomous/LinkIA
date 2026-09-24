@@ -255,21 +255,20 @@ export default function SocialProof() {
   };
 
   return (
-    <section className="pb-6 relative overflow-hidden">
-      <ScrollReveal>
-        <div className="text-start max-w-xl mx-auto">
+    <ScrollReveal className="pb-6 w-full max-w-5xl mx-auto relative">
+        <div className="text-start">
           <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2">
             Depoimentos
           </p>
-          <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
+          {/* <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
             Experiências Inspiradoras
-          </h2>
+          </h2> */}
           <p className="hidden sm:flex text-xs sm:text-sm text-brown-muted font-body mt-1">
             Junte-se a nós e torne-se nossa próxima história de sucesso
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
           {/* Carrossel Principal com Suporte a Gestos e Drag */}
           <div
             ref={scrollRef}
@@ -374,7 +373,6 @@ export default function SocialProof() {
             ))}
           </div>
         </div>
-      </ScrollReveal>
-    </section>
+    </ScrollReveal>
   );
 }

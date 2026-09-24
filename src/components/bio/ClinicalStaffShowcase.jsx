@@ -9,6 +9,7 @@ import {
   Users, 
   Sparkles 
 } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 // Dados dos Médicos e Injetores da Clínica
 const DOCTORS = [
@@ -252,16 +253,16 @@ export default function ClinicalStaffShowcase({ phoneNumber = '5511999999999' })
   };
 
   return (
-    <section className="pb-6 w-full max-w-5xl mx-auto sm:px-6 lg:px-8 relative overflow-hidden">
+    <ScrollReveal className="pb-6 w-full max-w-5xl mx-auto relative">
       {/* Cabeçalho do Módulo */}
       <div className="text-start mb-2">
         <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2 gap-1.5">
           {/* <ShieldCheck className="w-3.5 h-3.5 inline" /> */}
           NOSSA EQUIPE
         </p>
-        <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
+        {/* <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
           Especialistas de Confiança
-        </h2>
+        </h2> */}
         <p className="hidden sm:flex text-xs sm:text-sm text-brown-muted font-body mt-1">
           Toque em "Vídeo" para ver a apresentação da profissional.
         </p>
@@ -296,6 +297,6 @@ export default function ClinicalStaffShowcase({ phoneNumber = '5511999999999' })
           ))}
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

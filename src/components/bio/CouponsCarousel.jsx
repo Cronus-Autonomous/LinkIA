@@ -112,19 +112,19 @@ export default function CouponsCarousel({ phoneNumber = '5511999999999' }) {
   };
 
   return (
-    <section className="pb-6 w-full max-w-5xl mx-auto sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="pb-6 w-full max-w-5xl mx-auto relative overflow-hidden">
       {/* Cabeçalho do Módulo */}
       <div className="text-start mb-2">
         <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold flex gap-1.5">
           {/* <Ticket className="w-3.5 h-3.5 inline text-champagne-deep" /> */}
           Benefícios Exclusivos
         </p>
-        <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
+        {/* <h2 className="hidden sm:flex font-display text-2xl sm:text-3xl text-graphite font-bold">
           Cupons & Fidelidade
         </h2>
         <p className="hidden sm:flex text-xs sm:text-sm text-brown-muted font-body mt-1">
           Deslize para ver todas as ofertas disponíveis para resgate.
-        </p>
+        </p> */}
       </div>
 
       {/* Janela de Rolagem do Carrossel */}
@@ -132,7 +132,7 @@ export default function CouponsCarousel({ phoneNumber = '5511999999999' }) {
         <div
           ref={containerRef}
           onScroll={handleScroll}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none py-2 px-2 -mx-2 scroll-smooth cursor-grab active:cursor-grabbing justify-start sm:justify-center"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none py-2 px-2 -mx-2 scroll-smooth cursor-grab active:cursor-grabbing"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {COUPONS.map((coupon) => {
