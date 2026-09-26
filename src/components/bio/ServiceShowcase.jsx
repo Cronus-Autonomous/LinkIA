@@ -125,7 +125,7 @@ export default function ServiceShowcase({ onAskAi }) {
   };
 
   return (
-    <ScrollReveal className="pb-6">
+    <ScrollReveal className="pb-6 px-3">
       <ScrollReveal>
         <div className="text-start">
           <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2">

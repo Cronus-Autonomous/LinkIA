@@ -92,7 +92,7 @@ export default function BeforeAfterCarousel({ onAskAi }) {
   };
 
   return (
-    <ScrollReveal className="pb-6">
+    <ScrollReveal className="pb-6 px-3">
       <div className="flex items-end justify-between px-1">
         <div>
           <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2">Resultados Reais</p>
@@ -118,7 +118,7 @@ export default function BeforeAfterCarousel({ onAskAi }) {
             <div className="glass-card overflow-hidden">
               <div className="px-4 pt-4 flex items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-champagne/15 border border-champagne/40 text-[11px] font-semibold text-champagne-deep">
-                  <Sparkles className="w-3 h-3" /> {t.tag}
+                  {t.tag}
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-champagne-light to-champagne-deep border border-champagne/40 text-[11px] font-semibold text-white">
                   <Users className="w-3 h-3" /> +{t.length}

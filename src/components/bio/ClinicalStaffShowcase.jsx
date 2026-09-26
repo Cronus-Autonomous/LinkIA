@@ -253,7 +253,7 @@ export default function ClinicalStaffShowcase({ phoneNumber = '5511999999999' })
   };
 
   return (
-    <ScrollReveal className="pb-6 w-full max-w-5xl mx-auto relative">
+    <ScrollReveal className="pb-6  px-3 w-full max-w-5xl mx-auto relative">
       {/* Cabeçalho do Módulo */}
       <div className="text-start mb-2">
         <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2 gap-1.5">

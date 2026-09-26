@@ -50,7 +50,7 @@ export default function ConvenienceLinks({
   parkingInfo = 'Estacionamento conveniado com valet no local'
 }) {
   return (
-    <section className="pb-6 w-full max-w-5xl mx-auto space-y-6">
+    <section className="px-3 pb-6 w-full max-w-5xl mx-auto space-y-6">
       {/* Cabeçalho do Módulo */}
       <div className="hidden sm:block text-start">
         <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold">
@@ -69,31 +69,42 @@ export default function ConvenienceLinks({
       <div className="grid grid-cols-1 md:grid-cols-2">
         
         {/* CARD PRINCIPAL 1: Widget do Canal VIP */}
-        <div className="relative overflow-hidden rounded-3xl p-5 sm:p-6 bg-graphite text-white shadow-sm border border-champagne/40 flex flex-col justify-between h-full">
+        <div className="mx-2 relative overflow-hidden rounded-3xl p-5 sm:p-6 bg-graphite text-white shadow-sm border border-champagne/40 flex flex-col justify-between h-full">
+          {/* Imagem de Fundo */}
+          <img 
+            src="https://res.cloudinary.com/xiupvhfs/image/upload/v1790390288/0678c8d7c67175e45d14260a54ed21.jpg" 
+            alt="Fundo Canal VIP" 
+            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+          />
+        
+          {/* Overlay/Máscara para escurecer a imagem e manter o contraste do texto */}
+          <div className="absolute inset-0 bg-graphite/55 bg-gradient-to-t from-graphite via-graphite/50 to-graphite/10 pointer-events-none" />
+                
           {/* Luz decorativa ambiente */}
-          <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-champagne-deep/20 rounded-full blur-2xl pointer-events-none" />
-
+          {/* <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-champagne-deep/20 rounded-full blur-2xl pointer-events-none z-10" /> */}
+                
           <div className="relative z-10 space-y-3">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-champagne-deep/20 text-champagne-deep text-[10px] font-extrabold tracking-wider uppercase border border-champagne-deep/30">
-              <BellRing className="w-3 h-3 text-champagne-deep" /> Canal VIP
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-champagne-deep/20 text-champagne-deep text-[10px] font-extrabold tracking-wider uppercase border border-champagne-deep/30 backdrop-blur-sm">
+              {/* <BellRing className="w-3 h-3 text-champagne-deep" /> */}
+              Canal VIP
             </div>
-
+                
             <div>
-              <h3 className="font-display text-lg sm:text-xl font-bold text-white leading-snug">
+              <h3 className="font-display text-lg sm:text-xl font-bold text-white leading-snug drop-shadow-sm">
                 Alertas de Vagas & Promoções
               </h3>
-              <p className="text-xs text-white/80 font-body leading-relaxed mt-1">
+              <p className="text-xs text-white/90 font-body leading-relaxed mt-1 drop-shadow-sm">
                 Receba ofertas relâmpago e encaixes de última hora diretamente no seu WhatsApp.
               </p>
             </div>
           </div>
-
+                
           <div className="relative z-10 mt-5 pt-3">
             <a
               href={vipChannelUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full px-5 py-3 rounded-full bg-gradient-to-r from-champagne-light to-champagne-deep border border-champagne/40 text-graphite font-extrabold text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md active:scale-98"
+              className="gold-button w-full px-3 py-3 rounded-full bg-gradient-to-r from-champagne-light to-champagne-deep border border-champagne/40 text-graphite font-extrabold text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md active:scale-98"
             >
               <WhatsAppIcon className="w-4 h-4 fill-graphite text-graphite" />
               <span>Entrar no Grupo VIP</span>
@@ -102,7 +113,12 @@ export default function ConvenienceLinks({
         </div>
 
         {/* CARD PRINCIPAL 2: Localização & Rotas Rápidas */}
-        <div className="bg-white rounded-3xl p-5 sm:p-6 border border-champagne/30 shadow-sm flex flex-col justify-between space-y-4 h-full">
+        <div className="mx-2 bg-champagne/10 rounded-3xl p-5 sm:p-6 border border-champagne/30 shadow-sm flex flex-col justify-between space-y-4 h-full">
+          <img 
+            src="https://res.cloudinary.com/xiupvhfs/image/upload/v1790390580/350651c57a7be1bfdaa0601f0e63700e.jpg" 
+            alt="Fundo Localização da Clínica" 
+            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+          />
           <div className="space-y-3">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-2xl bg-champagne/20 text-champagne-deep flex items-center justify-center shrink-0 border border-champagne/30">

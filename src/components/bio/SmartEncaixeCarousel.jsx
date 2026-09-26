@@ -75,8 +75,8 @@ function SlotWidgetCard({ slot, onClaim }) {
 
       {/* Topo do Card: Badge de Condição & Cronômetro */}
       <div className="relative z-10 flex items-center justify-between">
-        <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full flex items-center gap-1 tracking-wider bg-gradient-to-r from-champagne-light to-champagne-deep border border-champagne/40 text-graphite shadow-2xs">
-          <Zap className="w-3 h-3 fill-graphite text-graphite" />
+        <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full flex items-center gap-1 tracking-wider bg-champagne/20 border border-champagne/10 text-graphite shadow-2xs">
+          {/* <Zap className="w-3 h-3 fill-graphite text-graphite" /> */}
           {slot.condition}
         </span>
 
@@ -149,7 +149,7 @@ export default function SmartEncaixeCarousel({ phoneNumber = '5511999999999' }) 
   };
 
   return (
-    <ScrollReveal className="pb-6 w-full max-w-5xl mx-auto relative">
+    <ScrollReveal className="pb-6 px-3 w-full max-w-5xl mx-auto relative">
       {/* Cabeçalho do Módulo */}
       <div className="text-start mb-2">
         <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 gap-1.5">

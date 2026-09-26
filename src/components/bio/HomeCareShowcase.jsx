@@ -290,7 +290,7 @@ export default function HomeCareShowcase({ phoneNumber = '5511999999999' }) {
   };
 
   return (
-    <ScrollReveal className="pb-6 w-full max-w-5xl mx-auto relative overflow-hidden">
+    <ScrollReveal className="pb-6 px-3 w-full max-w-5xl mx-auto relative overflow-hidden">
       {/* Cabeçalho do Módulo */}
       <div className="text-start mb-2 ">
         <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-1 gap-1.5">

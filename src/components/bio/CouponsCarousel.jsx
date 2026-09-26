@@ -6,13 +6,13 @@ const COUPONS = [
     id: 'black-friday',
     tag: 'OFERTA ESPECIAL',
     title: 'Black Friday Estética',
-    discount: '40% OFF',
+    discount: '20% OFF',
     subtitle: 'Em qualquer protocolo facial de alta tecnologia',
     buttonText: 'Resgatar',
     theme: 'black',
     circleBg: 'bg-champagne-deep',
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=600&auto=format&fit=crop',
-    whatsappMessage: 'Olá! Gostaria de resgatar meu cupom de Black Friday (40% OFF em procedimentos faciais).'
+    whatsappMessage: 'Olá! Gostaria de resgatar meu cupom de Black Friday (20% OFF em procedimentos faciais).'
   },
   {
     id: 'boas-vindas',
@@ -23,7 +23,7 @@ const COUPONS = [
     buttonText: 'Resgatar',
     theme: 'teal',
     circleBg: 'bg-amber-200',
-    image: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=600&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/xiupvhfs/image/upload/v1790389722/2026-09-25_23-27.png',
     whatsappMessage: 'Olá! Vim pelo LinkIA e quero resgatar meu cupom de boas-vindas de R$ 100 OFF.'
   },
   {
@@ -112,7 +112,7 @@ export default function CouponsCarousel({ phoneNumber = '5511999999999' }) {
   };
 
   return (
-    <section className="pb-6 w-full max-w-5xl mx-auto relative overflow-hidden">
+    <section className="pb-6 px-3 w-full max-w-5xl mx-auto relative overflow-hidden">
       {/* Cabeçalho do Módulo */}
       <div className="text-start mb-2">
         <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold flex gap-1.5">

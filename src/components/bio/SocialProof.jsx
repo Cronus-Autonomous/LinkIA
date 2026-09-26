@@ -255,7 +255,7 @@ export default function SocialProof() {
   };
 
   return (
-    <ScrollReveal className="pb-6 w-full max-w-5xl mx-auto relative">
+    <ScrollReveal className="pb-6  px-4 w-full max-w-5xl mx-auto relative">
         <div className="text-start">
           <p className="text-xs uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-2">
             Depoimentos
